@@ -35,7 +35,7 @@ def linear_search(sequence, the_number):
 
     return {"positions": positions, "count": count}
 
-def
+
 
 
 def main():
