@@ -1,4 +1,5 @@
 import os
+import json
 
 # get current working directory path
 cwd_path = os.getcwd()
@@ -13,10 +14,26 @@ def read_data(file_name, field):
     """
     file_path = os.path.join(cwd_path, file_name)
 
+    with open(file_path, "r") as f:
+        data = json.load(f)
+
+    if field not in data.keys():
+        return data[field]
+    else:
+        print(f"Field {field} not exist")
+        return None
+
+def linear_search(sequence, the_number):
+    positions = []
+    count = 0
+    i = 0
+
 
 def main():
     pass
 
-
 if __name__ == '__main__':
     main()
+    filename = "sequential.json"
+    data = read_data(filename, "unordered_numbers")
+    print(data)
