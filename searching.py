@@ -4,7 +4,6 @@ import json
 # get current working directory path
 cwd_path = os.getcwd()
 
-
 def read_data(file_name, field):
     """
     Reads json file and returns sequential data.
@@ -17,7 +16,7 @@ def read_data(file_name, field):
     with open(file_path, "r") as f:
         data = json.load(f)
 
-    if field not in data.keys():
+    if field in data.keys():
         return data[field]
     else:
         print(f"Field {field} not exist")
@@ -28,12 +27,24 @@ def linear_search(sequence, the_number):
     count = 0
     i = 0
 
+    while i < len(sequence):
+        if sequence[i] == the_number:
+            positions.append(i)
+            count += 1
+        i += 1
+
+    return {"positions": positions, "count": count}
+
+def
+
 
 def main():
-    pass
-
-if __name__ == '__main__':
-    main()
     filename = "sequential.json"
     data = read_data(filename, "unordered_numbers")
     print(data)
+
+    searching = linear_search(data, 6)
+    print(searching)
+
+if __name__ == '__main__':
+    main()
